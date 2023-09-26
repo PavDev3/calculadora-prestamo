@@ -13,63 +13,69 @@ const SliderSelect = ({sliderValue, setSliderValue}) => {
     <>
       <SliderComponent 
         label="Valor del coche:"
-        defaultValue={sliderValue.cocheValor}
-        value={sliderValue.cocheValor} 
+        defaultValue={sliderValue.carValue}
+        value={sliderValue.carValue} 
         min={bankMinimum} 
         max={bankLimit} 
         step={100}
         onChange={(e, value) => 
           setSliderValue({ 
-            ...sliderValue, 
-            entrada: value * 0.2,
-            prestamo: value * 0.8,
-            cocheValor: value})} 
+            ...sliderValue,
+            carValue: value.toFixed(0), 
+            downPayment: (0.2 * value).toFixed(0),
+            loanAmount: (0.8 * value).toFixed(0),
+            })} 
         unit={'€'}
-        amount={sliderValue.cocheValor}    
+        amount={sliderValue.carValue}    
       />
 
       <SliderComponent
         label="Entrada:" 
-        defaultValue={sliderValue.entrada}
-        value={sliderValue.entrada} 
+        defaultValue={sliderValue.downPayment}
+        value={sliderValue.downPayment} 
         min={entradaMinimum} 
-        max={sliderValue.cocheValor} 
+        max={sliderValue.carValue} 
         step={100}
         onChange={(e, value) => 
           setSliderValue({ 
             ...sliderValue,
-             prestamo: (sliderValue.cocheValor - value),
-             entrada: value})}
+            downPayment: value.toFixed(0),
+            loanAmount: (sliderValue.carValue - value).toFixed(0),
+          })}
         unit={'€'}
-        amount={sliderValue.entrada}
+        amount={sliderValue.downPayment}
       />
 
       <SliderComponent
         label="Préstamo:" 
-        defaultValue={sliderValue.prestamo}
-        value={sliderValue.prestamo} 
+        defaultValue={sliderValue.loanAmount}
+        value={sliderValue.loanAmount} 
         min={prestamoMinimum} 
-        max={sliderValue.cocheValor}
+        max={sliderValue.carValue}
         step={100}
         onChange={(e, value) => 
           setSliderValue({ 
             ...sliderValue,
-            entrada: (sliderValue.cocheValor - value),
-            prestamo: value})}
+            loanAmount: value.toFixed(0),
+            downPayment: (sliderValue.carValue - value).toFixed(0),
+          })}
         unit={'€'}
-        amount={sliderValue.prestamo}
+        amount={sliderValue.loanAmount}
       />
 
       <SliderComponent
         label="Intereses:" 
-        defaultValue={sliderValue.intereses} 
-        value={sliderValue.intereses}
+        defaultValue={sliderValue.interestRate} 
+        value={sliderValue.interestRate}
         min={interesMinimum} 
         max={interesLimit}
         step={0.5}
-        onChange={(e, value) => setSliderValue({ ...sliderValue, intereses: value})}
+        onChange={(e, value) => 
+          setSliderValue({ 
+            ...sliderValue, 
+            interestRate: value.toFixed(0)})}
         unit='%'
-        amount={sliderValue.intereses}
+        amount={sliderValue.interestRate}
       />
      </>
   )

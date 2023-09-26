@@ -6,20 +6,24 @@ import { Pie } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const Result = ({sliderValue}) => {
-  const {cocheValor, prestamo, intereses, cuotas} = sliderValue;
+  const { carValue, loanAmount, loanTerm, interestRate } = sliderValue;
 
-  const prestamoMeses = cuotas;
-  const interesesPorMes = intereses / 100 / 12;
+  const totalLoanMonths = loanTerm * 12;
+  const interestPerMonth = interestRate / 100 / 12;
+  const monthlyPayment =
+    (loanAmount *
+      interestPerMonth *
+      (1 + interestPerMonth) ** totalLoanMonths) /
+    ((1 + interestPerMonth) ** totalLoanMonths - 1);
 
-  const cuotaMensual =
-    (prestamo * interesesPorMes * (1 + interesesPorMes ) ** prestamoMeses ) / ((1 + interesesPorMes) ** prestamoMeses - 1);
+  const totalInterestGenerated = monthlyPayment * totalLoanMonths - loanAmount;
 
    const pieChartData = {
       labels: ['Prestamo', 'Intereses'],
       datasets: [
         {
           label: 'Relación entre prestamo e intereses  ',
-          data: [cocheValor, cuotaMensual],
+          data: [carValue, totalInterestGenerated],
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
@@ -46,7 +50,7 @@ const Result = ({sliderValue}) => {
   return (
   <Stack gap={3}>
     <Typography textAlign='center' variant='h5'>
-      Cuota Mensual: {cuotaMensual.toFixed(2)}€
+      Cuota Mensual: {monthlyPayment.toFixed(2)}€
     </Typography>
     <Stack direction='row' justifyContent='center'>
       <div>

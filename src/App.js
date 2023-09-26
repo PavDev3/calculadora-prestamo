@@ -8,11 +8,11 @@ import { Container, Grid } from "@mui/material";
 
 function App() {
   const [sliderValue, setSliderValue] = useState({
-    cocheValor: 3000,
-    entrada: 3000 * 0.2,
-    prestamo: 3000 * 0.8,
-    intereses: 3,
-    cuotas: 5,
+    carValue: 3000,
+    downPayment: 3000 * 0.2,
+    loanAmount: 3000 * 0.8,
+    loanTerm: 5,
+    interestRate: 5,
     
   }); 
 
