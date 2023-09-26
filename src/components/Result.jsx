@@ -50,7 +50,7 @@ const Result = ({sliderValue}) => {
   return (
   <Stack gap={3}>
     <Typography textAlign='center' variant='h5'>
-      Cuota Mensual: {monthlyPayment.toFixed(2)}€
+      Intereses mensuales: {monthlyPayment.toFixed(2)}€
     </Typography>
     <Stack direction='row' justifyContent='center'>
       <div>

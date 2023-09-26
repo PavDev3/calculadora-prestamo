@@ -6,7 +6,7 @@ import Select from '@mui/material/Select';
 const TenureSelect = ({sliderValue, setSliderValue}) => {
 
   const handleChange = (event) => {
-    setSliderValue({...sliderValue, cuotas: event.target.value})
+    setSliderValue({...sliderValue, loanTerm: event.target.value})
     
   };
   return (
@@ -15,14 +15,14 @@ const TenureSelect = ({sliderValue, setSliderValue}) => {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={sliderValue.cuotas}
+          value={sliderValue.loanTerm}
           label="Cuotas"
           onChange={handleChange}
         >
-          <MenuItem value={24}>2 años</MenuItem>
-          <MenuItem value={36}>3 años</MenuItem>
-          <MenuItem value={48}>4 años</MenuItem>
-          <MenuItem value={60}>5 años</MenuItem>
+          <MenuItem value={2}>2 años</MenuItem>
+          <MenuItem value={3}>3 años</MenuItem>
+          <MenuItem value={4}>4 años</MenuItem>
+          <MenuItem value={5}>5 años</MenuItem>
         </Select>
       </FormControl>
   )
