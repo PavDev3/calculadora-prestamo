@@ -1,8 +1,9 @@
 import React from 'react'
+import Slider from '@mui/material/Slider';
 
-const SliderComponent = () => {
+const SliderComponent = (props) => {
   return (
-    <div>SliderComponent</div>
+     <Slider defaultValue={props.defaultValue} min={props.min} max={props.max} aria-label="Default" valueLabelDisplay="auto" />
   )
 }
 
