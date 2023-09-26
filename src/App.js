@@ -12,6 +12,7 @@ function App() {
     entrada: 3000 * 0.2,
     prestamo: 3000 * 0.8,
     intereses: 3,
+    cuotas: 24,
     
   }); 
 
@@ -21,15 +22,15 @@ function App() {
       <Container maxWidth="md" sx={{mt: 8}}>
 
         {/* {Tenemos dos grid para separar, los sliders del resultado} */}
-        <Grid container spacing={5}>
+        <Grid container spacing={5} alignItems='center'>
           
           <Grid item xs={12} md={6}>    
             <SliderSelect sliderValue={sliderValue} setSliderValue={setSliderValue}/>
-            <TenureSelect/>
+            <TenureSelect sliderValue={sliderValue} setSliderValue={setSliderValue}/>
           </Grid>
 
           <Grid item xs={12} md={6}>    
-            <Result/>
+            <Result sliderValue={sliderValue} setSliderValue={setSliderValue}/>
           </Grid>
  
         </Grid>

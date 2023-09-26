@@ -1,15 +1,13 @@
-import {useState} from 'react'
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-const TenureSelect = () => {
-
-  const [cuotas, setCuotas] = useState('');
+const TenureSelect = ({sliderValue, setSliderValue}) => {
 
   const handleChange = (event) => {
-    setCuotas(event.target.value);
+    setSliderValue({...sliderValue, cuotas: event.target.value})
+    
   };
   return (
       <FormControl fullWidth>
@@ -17,13 +15,14 @@ const TenureSelect = () => {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={cuotas}
+          value={sliderValue.cuotas}
           label="Cuotas"
           onChange={handleChange}
         >
-          <MenuItem value={24}>24 meses</MenuItem>
-          <MenuItem value={36}>36 meses</MenuItem>
-          <MenuItem value={48}>48 meses</MenuItem>
+          <MenuItem value={24}>2 años</MenuItem>
+          <MenuItem value={36}>3 años</MenuItem>
+          <MenuItem value={48}>4 años</MenuItem>
+          <MenuItem value={60}>5 años</MenuItem>
         </Select>
       </FormControl>
   )
