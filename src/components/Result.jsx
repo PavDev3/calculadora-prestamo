@@ -18,7 +18,7 @@ const Result = ({sliderValue}) => {
       labels: ['Prestamo', 'Intereses'],
       datasets: [
         {
-          label: 'Prestamo ',
+          label: 'Relación entre prestamo e intereses  ',
           data: [cocheValor, cuotaMensual],
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
