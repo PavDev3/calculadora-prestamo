@@ -4,9 +4,47 @@ import SliderComponent from './common/SliderComponent'
 const SliderSelect = () => {
   return (
     <>
-      <SliderComponent defaultValue={2500} min={2000} max={20000} />
-      <SliderComponent defaultValue={150} min={100} max={200} />
-      <SliderComponent defaultValue={3} min={0} max={10} />
+      <SliderComponent 
+      label="Valor del coche:"
+      defaultValue={12000} 
+      min={5000} 
+      max={30000} 
+      step={100} 
+      onChange={(event, value) => console.log(value)}
+      unit={'€'}
+      //amout={}
+      
+      />
+
+      <SliderComponent
+      label="Entrada:" 
+      defaultValue={3000} 
+      min={1000} 
+      max={8000} 
+      step={100}
+      unit={'€'}
+      //amout={}
+      />
+
+      <SliderComponent
+      label="Préstamo:" 
+      defaultValue={3000} 
+      min={1500} 
+      max={29000}
+      step={100}
+      unit={'€'}
+      //amout={}
+      />
+
+      <SliderComponent
+      label="Intereses:" 
+      defaultValue={3} 
+      min={0} 
+      max={10}
+      step={1}
+      unit={'%'}
+      //amout={}
+      />
     </>
   )
 }
