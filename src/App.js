@@ -12,7 +12,7 @@ function App() {
     entrada: 3000 * 0.2,
     prestamo: 3000 * 0.8,
     intereses: 3,
-    cuotas: 24,
+    cuotas: 5,
     
   }); 
 
